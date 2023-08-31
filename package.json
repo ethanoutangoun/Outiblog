@@ -3,7 +3,8 @@
     "scripts": {
     
         "start": "node backend/server.js",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+        "heroku-postbuild": "cd frontend && npm install && npm run build && cd ../backend && npm install && node server.js"
+
     },
     "engines": {
         "node": "10.16.0"
