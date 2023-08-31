@@ -10,8 +10,8 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 const Comments = ({ blog, id, user, userError, userIsPending }) => {
 
-  const blogUrl = 'http://localhost:5000/api/blogs/' + id;
-  const userUrl = 'https://my-json-server.typicode.com/ethanoutangoun/outiblog-jsonserver/user'
+  const blogUrl = 'http://localhost:8000/api/blogs/' + id;
+
 
 
   const [comment, setComment] = useState("");

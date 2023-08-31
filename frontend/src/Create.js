@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Create = () => {
 
-    const blogUrl = 'http://localhost:5000/api/blogs/'
+    const blogUrl = 'http://localhost:8000/api/blogs/'
     //const userUrl = 'https://my-json-server.typicode.com/ethanoutangoun/outiblog-jsonserver/user'
 
     const [title, setTitle] = useState('');
