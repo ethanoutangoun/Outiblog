@@ -10,7 +10,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 const Comments = ({ blog, id, user, userError, userIsPending }) => {
 
-  const blogUrl = 'http://164.90.153.244/api/blogs/' + id;
+  const blogUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/blogs/' + id;
 
 
 
