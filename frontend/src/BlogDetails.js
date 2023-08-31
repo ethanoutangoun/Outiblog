@@ -9,7 +9,7 @@ import DeleteBlogModal from "./DeleteBlogModal";
 const BlogDetails = () => {
 
     //blog url
-    const blogUrl = 'http://localhost:8000/api/blogs/'
+    const blogUrl = 'http://164.90.153.244/api/blogs/'
     const userUrl = 'https://my-json-server.typicode.com/ethanoutangoun/outiblog-jsonserver/user'
 
     //id is from the specified route

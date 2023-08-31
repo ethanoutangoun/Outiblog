@@ -5,7 +5,7 @@ import useFetch from './useFetch';
 
 const Home = () => {
 
-    const blogUrl = 'http://localhost:8000/api/blogs/'
+    const blogUrl = 'http://164.90.153.244/api/blogs/'
    
     const { data: blogs, isPending, error } = useFetch(blogUrl)   
 
