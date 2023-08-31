@@ -43,10 +43,10 @@ const BlogDetails = () => {
                 <article className="blog-details">
                     <div className="blog-details-head">
                         <h2>{ blog.title }</h2>
-                        <DeleteBlogModal handleClick = {handleClick}/>
+                        {/*<DeleteBlogModal handleClick = {handleClick}/>*/}
 
 
-                        {/*user && (blog.author === user.username) && <DeleteBlogModal handleClick = {handleClick}/>*/}
+                        {user && (blog.author === user.username) && <DeleteBlogModal handleClick = {handleClick}/>}
                      
                     </div>
                     <div className="blog-details-body">
