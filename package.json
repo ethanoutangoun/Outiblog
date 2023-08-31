@@ -3,7 +3,7 @@
     "scripts": {
     
         "start": "node backend/server.js",
-        "heroku-postbuild": "cd backend && npm install && node server.js"
+        "heroku-postbuild": "cd frontend && npm install && npm run build"
 
     },
     "engines": {
