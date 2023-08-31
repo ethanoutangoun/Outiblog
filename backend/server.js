@@ -1,9 +1,11 @@
 // server.js
+const path = require('path'); // Import the path module
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const app = express();
 const PORT = 5000;
+
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://ethanoutangoun:j5E92M40BnnuImQb@testcluster.mtuva8j.mongodb.net/outiblog', {
@@ -143,6 +145,13 @@ app.patch('/api/blogs/:id', async (req, res) => {
   });
 
   
+  app.use(express.static(path.join(__dirname, '../build')))
+  app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '../build'))
+  })
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
