@@ -18,7 +18,7 @@ const Navbar = ({ user, isAuthenticated, isLoading }) => {
             
             <div className="links">
                 <Link to="/" draggable={false}>Home</Link>
-                { isAuthenticated && <Link to="/friends" draggable={false} disabled>Friends</Link>}
+                {/* isAuthenticated && <Link to="/friends" draggable={false} disabled>Friends</Link>*/}
                 { isAuthenticated && <Link to="/create" draggable={false} disabled>New Blog</Link>}
                 
                 
