@@ -18,6 +18,7 @@ export default function BasicPopover({ handleDelete, handleEdit, user, cuser, is
   };
 
   
+  
 
 
 
@@ -41,11 +42,15 @@ export default function BasicPopover({ handleDelete, handleEdit, user, cuser, is
 
         {isAuthenticated && (user.nickname === cuser) ?
         <div className='popover-container'>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={()=>{
+              handleEdit() 
+              handleClose()}}>Edit</button>
+            <button onClick={
+              ()=>{handleDelete()
+                  handleClose()}}>Delete</button>
         </div>: 
         <div className='popover-container'>
-          <button>Report</button>
+          <button onClick ={handleClose}>Report</button>
        
         </div>
         }
