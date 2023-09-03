@@ -8,6 +8,8 @@ import BlogDetails from './BlogDetails';
 import Create from './Create';
 import NotFound from './NotFound';
 import { useAuth0 } from "@auth0/auth0-react";
+import Friends from './Friends';
+
 
 function App() {
 
@@ -35,6 +37,10 @@ function App() {
             <BlogDetails user = {user} isAuthenticated = {isAuthenticated} isLoading = {isLoading} loginWithRedirect = {loginWithRedirect}/>
         </Route>
         
+        <Route path="/friends">
+          <Friends />
+        </Route>
+
         <Route path="*">
             <NotFound />
           </Route>
