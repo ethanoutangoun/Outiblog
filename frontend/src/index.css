@@ -31,7 +31,7 @@
 }
 .content {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 10px auto;
   padding: 20px;
 }
 
@@ -329,7 +329,7 @@
 }
 
 .auth-buttons{
-  margin-left: 7px;
+  margin-left: 13px;
 }
 
 .logout-button{
@@ -347,4 +347,10 @@
   cursor: pointer;
 
 
+}
+
+
+
+.auth-message{
+  margin-bottom: 15px;
 }

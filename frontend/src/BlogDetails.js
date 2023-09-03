@@ -6,11 +6,11 @@ import { useParams } from 'react-router-dom';
 import DeleteBlogModal from "./DeleteBlogModal";
 
 
-const BlogDetails = () => {
+const BlogDetails = ({ user, isAuthenticated, loginWithRedirect }) => {
 
     //blog url
     const blogUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/blogs/'
-    const userUrl = 'https://my-json-server.typicode.com/ethanoutangoun/outiblog-jsonserver/user'
+    
 
     //id is from the specified route
     
@@ -19,7 +19,7 @@ const BlogDetails = () => {
     const { data: blog, error, isPending } = useFetch(blogUrl + id);
     const history = useHistory();//to redirect once delelted
 
-    const {data: user, userError, userIsPending} = useFetch(userUrl)
+ 
 
 
     //Handle Delete button
@@ -46,7 +46,7 @@ const BlogDetails = () => {
                         {/*<DeleteBlogModal handleClick = {handleClick}/>*/}
 
 
-                        {user && (blog.author === user.username) && <DeleteBlogModal handleClick = {handleClick}/>}
+                        {user && (blog.author === user.nickname) && <DeleteBlogModal handleClick = {handleClick}/>}
                      
                     </div>
                     <div className="blog-details-body">
@@ -60,7 +60,7 @@ const BlogDetails = () => {
 
                 </article>
                 
-                {<Comments blog={blog} id={id} user = {user} userError = {userError} userIsPending = {userIsPending}/>}
+                {<Comments blog={blog} id={id} user = {user} isAuthenticated= {isAuthenticated} loginWithRedirect = {loginWithRedirect}/>}
                 </div>
             )}
            

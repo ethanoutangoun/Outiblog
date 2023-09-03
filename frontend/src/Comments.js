@@ -8,7 +8,7 @@ import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 
-const Comments = ({ blog, id, user, userError, userIsPending }) => {
+const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
 
   const blogUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/blogs/' + id;
 
@@ -21,13 +21,21 @@ const Comments = ({ blog, id, user, userError, userIsPending }) => {
   const [editedComment, setEditedComment] = useState(null)//state for the edited input of a comment
   const[initalComment, setInitialComment] = useState(null)//check if comment has been changed to allow editing
   const [userInfo, setUserInfo] = useState(user);
+  const [hoveredCommentIndex, setHoveredCommentIndex] = useState(null);
 
   
   console.log(userInfo)
   //Change this later when adding authentication
-  const username = "ethanoutangoun"
 
-  const [hoveredCommentIndex, setHoveredCommentIndex] = useState(null);
+ 
+  
+
+
+
+
+
+
+  
 
   useEffect(() => {
     // Update the component with the latest comments whenever the 'blog' prop changes
@@ -52,7 +60,7 @@ const Comments = ({ blog, id, user, userError, userIsPending }) => {
       ...updatedBlog,
       comments: [...updatedBlog.comments, 
         {   cid:uuidv4(),
-            username: username,
+            username: user.nickname,
             text: newComment, 
             date: new Date(),
             likes: 0,
@@ -253,7 +261,8 @@ const Comments = ({ blog, id, user, userError, userIsPending }) => {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
             />
-            <button onClick={() => addComment(comment)}>Submit</button>
+            {isAuthenticated ? <button onClick={() => addComment(comment)}>Submit</button>:
+            <button onClick={() => loginWithRedirect()}>Submit</button>}
         </div>}
 
         
@@ -303,17 +312,19 @@ const Comments = ({ blog, id, user, userError, userIsPending }) => {
                 {!(isEditing === comment.cid) && <div className="comment-interactions">
                   <div className="comment-likes">
 
-                    {user && (!isLiked(comment.cid) ? <ThumbUpOutlinedIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small" />:
-                    <ThumbUpIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small"/>)}
+                    {/*user && (!isLiked(comment.cid) ? <ThumbUpOutlinedIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small" />:
+                    <ThumbUpIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small"/>)*/}
 
+
+                    <ThumbUpOutlinedIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small" />
 
                     {comment.likes !== 0 ? (
                       <p>{comment.likes}</p>
-                      
-                   
-                  ) : null}
+                      ) : null}
                     
                   </div>
+
+
                   <div className="comment-likes">
                   <ThumbDownOutlinedIcon className="thumb-down" fontSize="small"/>
                   </div>

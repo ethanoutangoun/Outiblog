@@ -3,18 +3,13 @@ import useFetch from './useFetch';
 import ProfilePopover from './ProfilePopover';
 import Skeleton from '@mui/material/Skeleton';
 import LoginButton from './LoginButton';
-import { useAuth0 } from "@auth0/auth0-react";
 
 
-const Navbar = () => {
 
-    
-  
-    const userUrl = 'https://my-json-server.typicode.com/ethanoutangoun/outiblog-jsonserver/user';
-    //const { data, isPending, error } = useFetch(userUrl)   
-    const { user, isAuthenticated, isLoading } = useAuth0();
+const Navbar = ({ user, isAuthenticated, isLoading }) => {
 
     
+
 
     return ( 
         <nav className="navbar">
@@ -23,19 +18,20 @@ const Navbar = () => {
             
             <div className="links">
                 <Link to="/" draggable={false}>Home</Link>
-                <Link 
+                { isAuthenticated && <Link 
                 
                     to="/create" 
                     draggable={false}
+                    disabled
                     >
-                            New Blog</Link>
+                            New Blog</Link>}
                 
 
                 
             </div>
 
             <div className="auth-buttons">
-                {!isAuthenticated && <LoginButton/>}
+                {!isLoading && !isAuthenticated && <LoginButton/>}
                 
 
             </div>
@@ -49,9 +45,11 @@ const Navbar = () => {
                 }
                 
 
-                {isAuthenticated && <ProfilePopover data= {user} />}
+                {isAuthenticated && <ProfilePopover user= {user} />}
                 
             </div>
+
+          
 
             
         </nav>

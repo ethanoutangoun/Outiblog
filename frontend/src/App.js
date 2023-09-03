@@ -7,9 +7,11 @@ import Home from './Home';
 import BlogDetails from './BlogDetails';
 import Create from './Create';
 import NotFound from './NotFound';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
 
+  const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
 
   
 
@@ -18,11 +20,11 @@ function App() {
 
     
     <div className="App">
-      <Navbar />
+      <Navbar user = {user} isAuthenticated = {isAuthenticated} isLoading = {isLoading}/>
       <div className="content">
         <Switch>
         <Route exact path='/'>
-          <Home />
+          <Home user = {user} isAuthenticated = {isAuthenticated} isLoading = {isLoading}/>
         </Route>
 
         <Route path="/create">
@@ -30,7 +32,7 @@ function App() {
         </Route>
 
         <Route path="/blogs/:id">
-            <BlogDetails />
+            <BlogDetails user = {user} isAuthenticated = {isAuthenticated} isLoading = {isLoading} loginWithRedirect = {loginWithRedirect}/>
         </Route>
         
         <Route path="*">

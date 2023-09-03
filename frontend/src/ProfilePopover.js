@@ -3,7 +3,7 @@ import Popover from '@mui/material/Popover';
 import LogoutButton from './LogoutButton';
 
 
-export default function ProfilePopover({data}) {
+export default function ProfilePopover({user}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -19,7 +19,7 @@ export default function ProfilePopover({data}) {
 
   return (
     <div className='profile-container'>
-      <img  onClick={handleClick} className="profile-picture" src={data.picture} width={30} height={30} alt="" draggable={false}/>
+      <img  onClick={handleClick} className="profile-picture" src={user.picture} width={30} height={30} alt="" draggable={false}/>
       <Popover
         id={id}
         open={open}
@@ -31,8 +31,8 @@ export default function ProfilePopover({data}) {
         }}
       >
        <div className="popover-content">
-        <h3>{data.name}</h3>
-        <p>@ { data.nickname }</p>
+        <h3>{user.name}</h3>
+        <p>@ { user.nickname }</p>
         <LogoutButton />
        </div>
        
