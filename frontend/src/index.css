@@ -136,6 +136,11 @@
 }
 
 .comments-container input, .comments-container textarea,.comments-container select{
+  font-size: small;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
