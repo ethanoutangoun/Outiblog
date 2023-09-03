@@ -6,14 +6,13 @@ import { Link } from 'react-router-dom'
 const Create = ({user, isAuthenticated, isLoading, loginWithRedirect}) => {
 
     const blogUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/blogs'
-    //const userUrl = 'https://my-json-server.typicode.com/ethanoutangoun/outiblog-jsonserver/user'
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [author, setAuthor] = useState('');
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
+    //redirect to login if not signed in
     if (!isLoading && !isAuthenticated){
         loginWithRedirect()
     }
@@ -21,7 +20,7 @@ const Create = ({user, isAuthenticated, isLoading, loginWithRedirect}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const blog = { title, body, author };
+        const blog = { title, body, author:user.nickname };
 
         setIsPending(true);
         
@@ -62,15 +61,7 @@ const Create = ({user, isAuthenticated, isLoading, loginWithRedirect}) => {
                     onChange={(e)=> setBody(e.target.value)}>
                 </textarea>
 
-                <label>Blog author:</label>
-                <input
-                    required
-                    value = {author}
-                    onChange={(e) => setAuthor(e.target.value)}
-                >
-                    
-                </input>
-
+               
                 { !isPending && <button>Add Blog</button>}
                 {isPending && <button disabled>Adding blog...</button>}
           
