@@ -3,7 +3,7 @@ import Popover from '@mui/material/Popover';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react"
 
-export default function BasicPopover({handleDelete,handleEdit}) {
+export default function BasicPopover({ handleDelete, handleEdit, user, cuser, isAuthenticated }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
 
@@ -38,11 +38,17 @@ export default function BasicPopover({handleDelete,handleEdit}) {
           horizontal: 'left',
         }}
       >
+
+        {isAuthenticated && (user.nickname === cuser) ?
         <div className='popover-container'>
             <button onClick={handleEdit}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
-         
+        </div>: 
+        <div className='popover-container'>
+          <button>Report</button>
+       
         </div>
+        }
       </Popover>
     </div>
   );
