@@ -32,7 +32,7 @@ export default function ProfilePopover({user}) {
       >
        <div className="popover-content">
         <h3>{user.name}</h3>
-        <p>@ { user.nickname }</p>
+        <p>@{user.nickname }</p>
         <LogoutButton />
        </div>
        

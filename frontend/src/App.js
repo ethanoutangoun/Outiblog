@@ -28,7 +28,7 @@ function App() {
         </Route>
 
         <Route path="/create">
-          <Create />
+          <Create user = {user} isAuthenticated = {isAuthenticated} isLoading = {isLoading} loginWithRedirect = {loginWithRedirect}/>
         </Route>
 
         <Route path="/blogs/:id">
