@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { formatDistanceToNow } from 'date-fns';
+import { add, formatDistanceToNow } from 'date-fns';
 import { CircularProgress } from "@mui/material";
 import BasicPopover from "./BasicPopover";
 import { v4 as uuidv4 } from 'uuid';
@@ -24,12 +24,14 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
   const [hoveredCommentIndex, setHoveredCommentIndex] = useState(null);
 
   
-  console.log(userInfo)
-  //Change this later when adding authentication
-
  
   
-
+  // Function to handle Enter key press
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      addComment(comment)
+    }
+  };
 
 
 
@@ -260,6 +262,7 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
                 required
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
+                onKeyDown={handleKeyPress}
             />
             {isAuthenticated ? <button onClick={() => addComment(comment)}>Submit</button>:
             <button onClick={() => loginWithRedirect()}>Submit</button>}
