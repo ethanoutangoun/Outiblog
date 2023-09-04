@@ -9,6 +9,7 @@ import Create from './Create';
 import NotFound from './NotFound';
 import { useAuth0 } from "@auth0/auth0-react";
 import Friends from './Friends';
+import Profile from './Profile';
 
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
         
         <Route path="/friends">
           <Friends />
+        </Route>
+
+        <Route path="/profile">
+          <Profile />
         </Route>
 
         <Route path="*">

@@ -1,25 +1,25 @@
 import { Link } from 'react-router-dom'
-import useFetch from './useFetch';
 import ProfilePopover from './ProfilePopover';
 import Skeleton from '@mui/material/Skeleton';
 import LoginButton from './LoginButton';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 
 const Navbar = ({ user, isAuthenticated, isLoading }) => {
 
-    
+    const history = useHistory();
 
 
     return ( 
         <nav className="navbar">
-            <h1>Outiblog</h1>
+            <h1 className="title-icon" onClick={()=> history.push('/')}>Outiblog</h1>
             
             
             <div className="links">
                 <Link to="/" draggable={false}>Home</Link>
-                {/* isAuthenticated && <Link to="/friends" draggable={false} disabled>Friends</Link>*/}
-                { isAuthenticated && <Link to="/create" draggable={false} disabled>New Blog</Link>}
+                {/* isAuthenticated && <Link to="/friends" draggable={false}>Friends</Link>*/}
+                { isAuthenticated && <Link to="/create" draggable={false}>New Blog</Link>}
                 
                 
 

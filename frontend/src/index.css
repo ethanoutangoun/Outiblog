@@ -10,6 +10,11 @@
   font-family: "Quicksand";
   color: #333;
 }
+
+.title-icon:hover{
+  cursor: pointer;
+}
+
 .navbar {
   padding: 20px;
   display: flex;
@@ -345,25 +350,39 @@
   margin-left: 13px;
 }
 
-.logout-button{
 
-  margin-top: 13px;
-
-}
-
-
-.logout-button button{
-  background-color: #f1356d;
-  color: white;
-  border: 0;
-  padding: 8px;
-  cursor: pointer;
-
-
-}
 
 
 
 .auth-message{
   margin-bottom: 15px;
 }
+
+
+.popover-other{
+
+  padding: 5px 0px;
+  margin-top: 5px;
+  border-top: 1px solid #f2f2f2;
+}
+
+.profile-button{
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  gap: 5px;
+}
+
+.profile-button button{
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 3px;
+
+}
+
+.profile-button:hover {
+  background-color: rgb(219, 218, 218);
+  cursor: pointer;
+}
+
