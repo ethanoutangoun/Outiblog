@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { add, formatDistanceToNow } from 'date-fns';
 import { CircularProgress } from "@mui/material";
-import BasicPopover from "./BasicPopover";
+import CommentPopover from "./CommentPopover";
 import { v4 as uuidv4 } from 'uuid';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined';
@@ -287,7 +287,7 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
                
                 
                 {hoveredCommentIndex === index && (
-                  <BasicPopover  handleDelete = {() => delComment(comment.cid)} handleEdit ={()=>editComment(comment)} user = {user} cuser = {comment.username} isAuthenticated = {isAuthenticated}/>
+                  <CommentPopover  handleDelete = {() => delComment(comment.cid)} handleEdit ={()=>editComment(comment)} user = {user} cuser = {comment.username} isAuthenticated = {isAuthenticated}/>
                 )}
 
                 </div>

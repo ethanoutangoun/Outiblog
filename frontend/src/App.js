@@ -1,10 +1,10 @@
 // src/App.js
 
 
-import Navbar from './Navbar';
+import Navbar from './Navbar/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import BlogDetails from './BlogDetails';
+import Home from './Home/Home';
+import BlogDetails from './BlogDetailsPage/BlogDetails';
 import Create from './Create';
 import NotFound from './NotFound';
 import { useAuth0 } from "@auth0/auth0-react";

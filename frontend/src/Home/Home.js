@@ -1,6 +1,6 @@
 
 import BlogList from './BlogList';
-import useFetch from './useFetch';
+import useFetch from '../useFetch';
 import { useState, useEffect } from 'react';
 
 const Home = ({ user, isAuthenticated, isLoading }) => {

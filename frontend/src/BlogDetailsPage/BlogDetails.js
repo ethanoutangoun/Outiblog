@@ -1,5 +1,5 @@
 
-import useFetch from './useFetch'
+import useFetch from '../useFetch'
 import Comments from "./Comments";
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';

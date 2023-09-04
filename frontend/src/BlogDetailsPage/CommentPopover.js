@@ -3,7 +3,7 @@ import Popover from '@mui/material/Popover';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react"
 
-export default function BasicPopover({ handleDelete, handleEdit, user, cuser, isAuthenticated }) {
+export default function CommentPopover({ handleDelete, handleEdit, user, cuser, isAuthenticated }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
 
