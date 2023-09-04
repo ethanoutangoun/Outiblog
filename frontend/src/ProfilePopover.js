@@ -48,7 +48,10 @@ export default function ProfilePopover({user}) {
         </div>
         
         <div className='popover-other'>
-          <div className="profile-button" onClick={()=>history.push('/profile')}>
+          <div className="profile-button" onClick={()=>{
+            history.push('/profile');
+            handleClose();
+        }}>
             <PersonOutlineIcon />
             <p>Profile</p>
           </div>
