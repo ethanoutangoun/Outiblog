@@ -72,7 +72,7 @@
 .blog-details h2{
   font-size: 20px;
   color: #f1356d;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 
@@ -240,7 +240,7 @@
 }
 
 .popover-container button:hover {
-  background-color: rgb(190, 190, 190);
+  background-color: rgb(219, 218, 218);
   cursor: pointer;
 }
 
@@ -276,13 +276,13 @@
 
 .thumb-up:hover{
   cursor: pointer;
-  background-color: lightgray;
+  background-color: rgb(219, 218, 218);
   border-radius: 50%;
 }
 
 .thumb-down:hover{
   cursor: pointer;
-  background-color: lightgray;
+  background-color: rgb(219, 218, 218);
   border-radius: 50%;
 }
 

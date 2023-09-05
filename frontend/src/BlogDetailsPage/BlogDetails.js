@@ -4,22 +4,23 @@ import Comments from "./Comments";
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import DeleteBlogModal from "./DeleteBlogModal";
-
+import { format } from 'date-fns';
 
 const BlogDetails = ({ user, isAuthenticated, loginWithRedirect }) => {
 
-    //blog url
-    const blogUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/blogs/'
-    
-
-    //id is from the specified route
-    
+   
+    const blogUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/blogs/'    
     const { id } = useParams();
-    //const { data: blog, error, isPending } = useFetch('http://localhost:8000/blogs/' + id);
     const { data: blog, error, isPending } = useFetch(blogUrl + id);
     const history = useHistory();//to redirect once delelted
 
- 
+    var blogDate;
+    if (blog && blog.date){
+
+        blogDate = new Date(blog.date)
+        blogDate = (format(blogDate,"MMMM dd, yyyy"))
+    }
+    
 
 
     //Handle Delete button
@@ -50,8 +51,9 @@ const BlogDetails = ({ user, isAuthenticated, loginWithRedirect }) => {
                      
                     </div>
                     <div className="blog-details-body">
-                        
                         <p>Written by {blog.author}</p>
+                        <p style={{ color:'rgb(198, 198, 198)' }}>{blogDate}</p>
+
                         <div>{blog.body}</div>   
                         
                     </div>
