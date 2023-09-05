@@ -62,9 +62,9 @@ export default function CommentPopover({ handleDelete, handleEdit, user, cuser, 
             
         </div>: 
         <div className='popover-container'>
-          <div className="popover-action">
+          <div className="popover-action"  onClick ={handleClose}>
             <FlagOutlinedIcon />
-            <button onClick ={handleClose}>Report</button>
+            <button>Report</button>
           </div>
           
        
