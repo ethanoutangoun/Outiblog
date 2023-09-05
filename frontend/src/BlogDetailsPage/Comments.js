@@ -132,6 +132,7 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
     setInitialComment(comment.text)
   }
 
+  
   function saveEditComment(cid){
     // Find the comment with the specified cid
 
@@ -149,7 +150,7 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
         commentToUpdate.edited = true;//set edited tag to true
     }
 
-    console.log(updatedData)
+ 
 
     fetch(blogUrl, {
       method: "PATCH",

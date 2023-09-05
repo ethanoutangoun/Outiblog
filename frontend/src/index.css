@@ -392,3 +392,15 @@
   color: white;
   border-radius: 5px;
 }
+
+.modify-blog-buttons{
+  display: flex;
+  gap: 7px;
+}
+
+.edit-blog-textarea{
+  padding: 5px;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 16px;
+}
