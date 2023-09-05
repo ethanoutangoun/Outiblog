@@ -232,18 +232,35 @@
   display: flex;
   flex-direction: column;
 
+
 }
 
 .popover-container button{
   background-color: transparent;
   border: none;
+  font-size: 14px;
+  padding: 3px;
 }
 
-.popover-container button:hover {
-  background-color: rgb(219, 218, 218);
+
+
+.popover-action{
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  padding-left: 10px;
+  gap: 4px;
+
+}
+
+.popover-action button:hover{
   cursor: pointer;
 }
 
+.popover-action:hover{
+  background-color: rgb(219, 218, 218);
+  cursor: pointer;
+}
 
 .options{
   display: flex;

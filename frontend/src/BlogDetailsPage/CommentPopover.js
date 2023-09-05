@@ -1,7 +1,9 @@
-
 import Popover from '@mui/material/Popover';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from "react"
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 export default function CommentPopover({ handleDelete, handleEdit, user, cuser, isAuthenticated }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -42,15 +44,29 @@ export default function CommentPopover({ handleDelete, handleEdit, user, cuser, 
 
         {isAuthenticated && (user.nickname === cuser) ?
         <div className='popover-container'>
-            <button onClick={()=>{
+
+            <div className="popover-action" onClick={()=>{
               handleEdit() 
-              handleClose()}}>Edit</button>
-            <button onClick={
+              handleClose()}}>
+              
+              <EditOutlinedIcon />
+              <button>Edit</button>
+            </div>
+            
+            <div className="popover-action"  onClick={
               ()=>{handleDelete()
-                  handleClose()}}>Delete</button>
+                  handleClose()}}>
+              <DeleteForeverOutlinedIcon/>
+              <button>Delete</button>
+            </div>
+            
         </div>: 
         <div className='popover-container'>
-          <button onClick ={handleClose}>Report</button>
+          <div className="popover-action">
+            <FlagOutlinedIcon />
+            <button onClick ={handleClose}>Report</button>
+          </div>
+          
        
         </div>
         }
