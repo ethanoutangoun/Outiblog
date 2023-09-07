@@ -8,7 +8,7 @@ const Home = ({ user, isAuthenticated, isLoading }) => {
     const blogUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/blogs'
    
     const { data: blogs, isPending, error } = useFetch(blogUrl)   
-     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
     // Function to update the screen width state
     const updateScreenWidth = () => {

@@ -200,7 +200,10 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
       
         commentToUpdate.likes += 1; // Increment the likes by one
           //need to add cid to user data
-         
+
+
+        //ADD AFTER ALLOWING likedBy in express routes
+        commentToUpdate.likedBy = [...commentToUpdate.likedBy, user.nickname]
 
         
           
@@ -233,14 +236,22 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
     
   }
 
+  function removeCommentLike(cid){
+    
+  }
+
   //returns true or false if comment is liked by user
   function isLiked(cid){
     
-    const commentToUpdate = user.likedComments.find(
-      (comment) => comment === cid
-    );
+    const targetComment = (blog.comments.find((comment) => comment.cid === cid))
+    
+    if (targetComment.likedBy != null){
+      return(targetComment.likedBy.find((selectedUser) => selectedUser === user.nickname))
+    }
+    
 
-    return commentToUpdate != null
+    return false
+   
     
   }
 
@@ -319,8 +330,10 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
                     {/*user && (!isLiked(comment.cid) ? <ThumbUpOutlinedIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small" />:
                     <ThumbUpIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small"/>)*/}
 
+                    {(user && isLiked(comment.cid)) ? <ThumbUpIcon className="thumb-up" fontSize="small" /> : <ThumbUpOutlinedIcon onClick={()=> {
+                      addCommentLike(comment.cid)}} className="thumb-up" fontSize="small" />}
 
-                    <ThumbUpOutlinedIcon onClick={()=>addCommentLike(comment.cid)} className="thumb-up" fontSize="small" />
+                    
 
                     {comment.likes !== 0 ? (
                       <p>{comment.likes}</p>
