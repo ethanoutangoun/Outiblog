@@ -175,6 +175,10 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
   function addCommentLike(cid){
     // Find the comment with the specified cid
     
+    if (user == null){
+      return
+    }
+
     const updatedData = {
       ...updatedBlog
     };
@@ -203,7 +207,7 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
 
 
         //ADD AFTER ALLOWING likedBy in express routes
-        commentToUpdate.likedBy = [...commentToUpdate.likedBy, user.nickname]
+        //commentToUpdate.likedBy = [...commentToUpdate.likedBy, user.nickname]
 
         
           
@@ -237,7 +241,7 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
   }
 
   function removeCommentLike(cid){
-    
+
   }
 
   //returns true or false if comment is liked by user
@@ -245,7 +249,7 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
     
     const targetComment = (blog.comments.find((comment) => comment.cid === cid))
     
-    if (targetComment.likedBy != null){
+    if (targetComment && targetComment.likedBy != null){
       return(targetComment.likedBy.find((selectedUser) => selectedUser === user.nickname))
     }
     
