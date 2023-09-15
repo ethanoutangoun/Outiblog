@@ -10,6 +10,7 @@ import NotFound from './NotFound';
 import { useAuth0 } from "@auth0/auth0-react";
 import Friends from './Friends';
 import Profile from './Profile';
+import NewUser from './NewUser';
 
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
 
         <Route path="/profile">
           <Profile />
+        </Route>
+
+        <Route path="/newuser">
+          <NewUser  user = {user} isAuthenticated = {isAuthenticated} isLoading = {isLoading}/>
         </Route>
 
         <Route path="*">

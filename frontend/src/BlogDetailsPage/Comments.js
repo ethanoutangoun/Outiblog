@@ -20,7 +20,6 @@ const Comments = ({ blog, id, user, isAuthenticated, loginWithRedirect}) => {
   const [isEditing, setIsEditing] = useState(null);//if state == to cid then display edit input form
   const [editedComment, setEditedComment] = useState(null)//state for the edited input of a comment
   const[initalComment, setInitialComment] = useState(null)//check if comment has been changed to allow editing
-  const [userInfo, setUserInfo] = useState(user);
   const [hoveredCommentIndex, setHoveredCommentIndex] = useState(null);
 
   
