@@ -9,7 +9,7 @@ import Create from './Create';
 import NotFound from './NotFound';
 import { useAuth0 } from "@auth0/auth0-react";
 import Friends from './Friends';
-import Profile from './Profile';
+import Profile from './Profile/Profile';
 import NewUser from './NewUser';
 
 
@@ -44,7 +44,7 @@ function App() {
         </Route>
 
         <Route path="/profile">
-          <Profile />
+          <Profile user = {user} isAuthenticated = {isAuthenticated} isLoading = {isLoading} />
         </Route>
 
         <Route path="/newuser">

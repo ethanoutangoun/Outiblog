@@ -37,10 +37,11 @@ const Home = ({ user, isAuthenticated, isLoading }) => {
             { error && <div>{ error }</div> }
             { isPending && <div>Loading...</div> }
             {blogs && <BlogList blogs = {blogs} title = {"All Blogs"}/>}
-            
+        
 
 
-            {screenWidth < 100 && <div>Hello</div>}
+
+            {screenWidth < 100 && <div>Hello</div> /*Sample code to show how to use state to render different components based on screen size*/}
 
         </div>
      );
