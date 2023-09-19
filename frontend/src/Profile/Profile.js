@@ -16,7 +16,8 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
   
     const uniqueId = user && user.sub
     const userUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/users/' + uniqueId
-    //const [data, isPending, error] = useFetch(userUrl)
+
+    
     //useEffect to only run once when component mounts
     useEffect(() => {
         if (uniqueId != null) {
@@ -60,7 +61,7 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
               
             });
         }
-      }, [uniqueId, userUrl]);
+      }, [uniqueId]);
 
 
       
@@ -89,7 +90,7 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
                 </div>)
                 
                 )}
-                {userBlogs.length == 0 && <p>You have no blogs yet!</p>}
+                {userBlogs && userBlogs.length == 0 && <p>You have no blogs yet!</p>}
                 
             </div>
             
