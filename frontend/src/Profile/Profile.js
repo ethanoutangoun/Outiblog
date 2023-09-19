@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import { set } from "date-fns";
 
 const Profile = ({ user, isAuthenticated, isLoading }) => {
 
@@ -54,9 +55,8 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
               return res.json();
             })
             .then(data => {
-              console.log(data);
               setUserBlogs(data.user_blogs);
-              console.log(userBlogs)
+         
               
             });
         }
@@ -98,7 +98,7 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
         </div>)
 
         //Render new user page if user is not authenticated
-        || (!isRegistered && !isPending) && (
+        || (!isRegistered && !isAuthenticated) && (
             <div>
                 <h2>Looks like you're new here!</h2>
                 <p>Click <Link to='/newuser'>here</Link> to return to the homepage!</p>
