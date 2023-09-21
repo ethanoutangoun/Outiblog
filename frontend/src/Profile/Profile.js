@@ -21,7 +21,7 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
     //useEffect to only run once when component mounts
     useEffect(() => {
         if (uniqueId != null) {
-          console.log(uniqueId);
+       
           fetch(userUrl, {
             method: 'GET',
           })
@@ -81,12 +81,10 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
             <div>
                 <h2>My Blogs</h2>
                 {userBlogs && userBlogs.map((blog) => (
-                <div>
-                    <Link to={`/blogs/${blog}`}>
-                        {blog}
-                        
-                
-                    </Link>
+                <div key={blog.id}>
+                    <Link to={`/blogs/${blog.id}`}>{blog.name}</Link>
+
+                    
                 </div>)
                 
                 )}
