@@ -16,7 +16,7 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
   
     const uniqueId = user && user.sub
     const userUrl = 'https://radiant-gorge-79799-b57d03ac0ddd.herokuapp.com/api/users/' + uniqueId
-
+    const blogCount = userBlogs && userBlogs.length
     
     //useEffect to only run once when component mounts
     useEffect(() => {
@@ -68,27 +68,42 @@ const Profile = ({ user, isAuthenticated, isLoading }) => {
 
     return ( 
         
-       (isRegistered)&& (
+       (isRegistered) && (
         //Render profile page if user is authenticated
         <div>
-            <div>
-                <h2>My Profile</h2>
-                <p>Username: {user.nickname}</p>
+
+
+            <div className="userprofile-container">
+                <div className="username-container">
+                  <h3>{user.nickname}</h3>
+                  {blogCount === 1 ? <p>{blogCount} blog</p> : <p>{blogCount} blogs</p>}
+                </div>
+                
                 <p>Email: {user.email}</p>
                 <p>Unique ID: {user.sub}</p>
             </div>
             
+
+
+
+
+
+
+
             <div>
                 <h2>My Blogs</h2>
                 {userBlogs && userBlogs.map((blog) => (
-                <div key={blog.id}>
-                    <Link to={`/blogs/${blog.id}`}>{blog.name}</Link>
+                  
+                <div className="blog-preview" key={blog.id}>
+                    <Link to={`/blogs/${blog.id}`}>
+                      <h2>{blog.name}</h2>
+                    </Link>
 
                     
                 </div>)
                 
                 )}
-                {userBlogs && userBlogs.length == 0 && <p>You have no blogs yet!</p>}
+                {blogCount === 0 && <p>You have no blogs yet!</p>}
                 
             </div>
             
